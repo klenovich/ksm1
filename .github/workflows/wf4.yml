@@ -25,8 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Build Packages
+      - name: Build Packages- back
         shell: "bash"
+        working-directory: ./backend
+        run: yarn build
+        
+      - name: Build Packages- front
+        shell: "bash"
+        working-directory: ./storefront
         run: yarn build
         
       # Starts Backend
