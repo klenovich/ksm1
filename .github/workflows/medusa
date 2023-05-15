@@ -27,12 +27,10 @@ jobs:
 
       # Starts Backend
       - name: Backend
-        run: |
-          cd backend
-          yarn start
+        working-directory: ./backend
+        run: yarn start
 
       # Starts Storefront
       - name: Storefront
-        run: |
-          cd storefront
-          yarn dev
+        working-directory: ./storefront
+        run: yarn dev
