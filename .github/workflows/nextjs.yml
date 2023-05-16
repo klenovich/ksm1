@@ -134,10 +134,6 @@ jobs:
       - name: Build with Next.js
         working-directory: ./storefront
         run: ${{ steps.detect-package-manager.outputs.runner }} test
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./out
 
   # Deployment job
   deploy:
