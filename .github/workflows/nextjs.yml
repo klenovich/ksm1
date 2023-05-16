@@ -75,12 +75,15 @@ jobs:
       - name: Install dependencies
         working-directory: ./backend
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Install dependencies
+        working-directory: ./storefront
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         working-directory: ./backend
-        run: ${{ steps.detect-package-manager.outputs.runner }} yarn start
+        run: ${{ steps.detect-package-manager.outputs.runner }} start
       - name: Build with Next.js
         working-directory: ./storefront
-        run: ${{ steps.detect-package-manager.outputs.runner }} yarn dev
+        run: ${{ steps.detect-package-manager.outputs.runner }} dev
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
